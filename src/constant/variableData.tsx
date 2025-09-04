@@ -35,12 +35,12 @@ export const userStats = [
 
 // layoute sidebar data :
 export const sideBarData = [
-  { title: "File manager", icon: <Cloud /> },
-  { title: "Recent Files", icon: <Clock /> },
-  { title: "favorite", icon: <Star /> },
-  { title: "Trash bin", icon: <Trash /> },
+  { title: "File manager", icon: <Cloud className="w-4.5 h-4.5" /> },
+  { title: "Recent Files", icon: <Clock className="w-4.5 h-4.5" /> },
+  { title: "favorite", icon: <Star className="w-4.5 h-4.5" /> },
+  { title: "Trash bin", icon: <Trash className="w-4.5 h-4.5" /> },
 ];
 export const sideBarData2 = [
-  { title: "Team", icon: <Cloud /> },
-  { title: "School", icon: <Clock /> },
+  { title: "Team", icon: <Cloud className="w-4.5 h-4.5" /> },
+  { title: "School", icon: <Clock className="w-4.5 h-4.5" /> },
 ];

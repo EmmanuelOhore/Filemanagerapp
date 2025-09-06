@@ -14,9 +14,21 @@ import img3 from "../assets/cases.png";
 import img4 from "../assets/stress.png";
 import OverviewStorageCards from "../components/ui/overviewStorageCards";
 import SuggestionsCards from "../components/ui/suggestionsCards";
+import RecentFilesTable from "../components/ui/recentFilesTable";
+import UploadFilesModal from "../components/ui/uploadfilesModal";
+import { useState } from "react";
 const Dashboard = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
   return (
-    <main className="p-6 overflow-y-auto">
+    <main
+      className={`p-6 relative  h-[85vh] scrollbar-thin ${
+        isModalOpen ? "overflow-hidden" : "overflow-y-auto"
+      }`}
+    >
       <header className="flex justify-between">
         <section className="bg-[#272c34] py-1.5 px-5 w-[15rem] text-white rounded-md">
           <h2 className="flex items-center  gap-1 text-base ">
@@ -32,7 +44,10 @@ const Dashboard = () => {
             <button className=" flex gap-2 bg-[#272c34] px-4 py-1.5 items-center rounded-md">
               <LayoutGrid className="w-4 h-4" /> View
             </button>
-            <button className=" bg-[#3146ff] flex gap-2 px-4 py-1.5 items-center rounded-md">
+            <button
+              onClick={handleOpenModal}
+              className=" bg-[#3146ff] flex gap-2 px-4 py-1.5 items-center rounded-md"
+            >
               <Plus className="w-4 h-4" /> Create
             </button>
           </article>
@@ -88,6 +103,16 @@ const Dashboard = () => {
           />
         </article>
       </section>
+      <section className="mt-6 flex flex-col gap-6">
+        <h2 className="text-white font-medium text-2xl ">Recent Files</h2>
+        <RecentFilesTable />
+      </section>
+
+      {isModalOpen && (
+        <aside className="inset-0 absolute flex justify-center items-center   backdrop-blur-sm">
+          <UploadFilesModal open={handleOpenModal} />
+        </aside>
+      )}
     </main>
   );
 };

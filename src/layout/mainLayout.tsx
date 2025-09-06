@@ -8,7 +8,7 @@ const MainLayout = () => {
       <section>
         <SideBar />
       </section>
-      <section className="flex flex-col bg-[#181a1f] flex-1">
+      <section className="flex flex-col bg-[#181a1f] flex-1 ">
         <TopHeader />
         <Outlet />
       </section>
